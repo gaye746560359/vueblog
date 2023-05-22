@@ -4,6 +4,13 @@ access: default
 services:
   framework:
     component: fc
+    actions:
+      pre-deploy:
+        - run: npm install
+          path: ./
+        - run: npm build
+          path: ./
+        - plugin: website-fc
     props:
       region: cn-shenzhen
       service:
